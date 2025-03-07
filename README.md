@@ -11,8 +11,8 @@ This is a Quiz App built with Next.js and Prisma. It allows users to take quizze
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/micrometre/quizzes/nextjs.git
-    cd quiz-app
+    git clone https://github.com/micrometre/nexjs-quiz.git
+    cd nexjs-quiz
     ```
 
 2. Install dependencies:
