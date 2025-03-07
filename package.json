@@ -7,7 +7,6 @@
     "build": "next build",
     "start": "next start",
     "add": "node insertSampleData.js",
-
     "lint": "next lint"
   },
   "dependencies": {
