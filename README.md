@@ -58,7 +58,7 @@ Fetch all quizzes with their questions and answers.
 
 ### POST /api/quizzes
 
-Submit quiz answers and calculate the score.
+Submit quiz answers and calculate the score
 
 #### Request
 ```json
