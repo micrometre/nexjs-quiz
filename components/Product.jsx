@@ -1,6 +1,7 @@
 import Image from 'next/image'
 // src/components/home/Products/Product.js
-import React from "react";
+import { React } from 'react';
+
 import { BsSuitHeartFill } from "react-icons/bs";
 import { GiReturnArrow } from "react-icons/gi";
 import { FaShoppingCart } from "react-icons/fa";

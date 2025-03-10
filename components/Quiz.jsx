@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { React } from 'react';
+
 import Question from './Question';
 import NavigationButtons from './NavigationButtons';
 import Result from './Result';
@@ -42,9 +44,6 @@ const Quiz = ({ selectedQuiz, handleSubmit, score, setSelectedQuiz }) => {
       <h2 className="text-xl text-gray-700 mb-6">
         Question {currentQuestionIndex + 1} of {selectedQuiz.questions.length}
       </h2>
-      <div className="mb-4">
-        <span className="text-lg font-semibold text-gray-800">Score: {liveScore}</span>
-      </div>
       <Question
         currentQuestion={currentQuestion}
         selectedAnswers={selectedAnswers}

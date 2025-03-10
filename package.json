@@ -6,6 +6,13 @@
     "dev": "next dev --turbopack -H 0.0.0.0 -p 5000",
     "build": "next build",
     "start": "next start",
+    "db": " npx prisma migrate dev --name init",
+    "script1": "node scripts/insertModern.js",
+    "script2": "node scripts/governmentAndLaw.js",
+    "script3": "node scripts/insertWhatsUK.js",
+    "script4": "node scripts/insertUkHistory.js",
+    "script5": "node scripts/insertRuleOfLaw.js",
+    "script6": "node scripts/insertUKValues.js",
     "lint": "next lint"
   },
   "dependencies": {
