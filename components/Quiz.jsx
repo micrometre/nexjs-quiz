@@ -3,42 +3,32 @@ import Question from './Question';
 import NavigationButtons from './NavigationButtons';
 import Result from './Result';
 
-// Quiz component to handle the quiz functionality
 const Quiz = ({ selectedQuiz, handleSubmit, score, setSelectedQuiz }) => {
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0); // State to track the current question index
-  const [selectedAnswers, setSelectedAnswers] = useState({}); // State to track selected answers
-  const [isAnswerCorrect, setIsAnswerCorrect] = useState(false); // State to track if the selected answer is correct
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [selectedAnswers, setSelectedAnswers] = useState({});
+  const [isAnswerCorrect, setIsAnswerCorrect] = useState(false);
   const [liveScore, setLiveScore] = useState(0); // State to track the live score
 
-  const currentQuestion = selectedQuiz.questions[currentQuestionIndex]; // Get the current question based on the index
+  const currentQuestion = selectedQuiz.questions[currentQuestionIndex];
 
-  // Handle answer selection
   const handleAnswerSelect = (questionId, answerId) => {
     setSelectedAnswers((prev) => ({
       ...prev,
       [questionId]: answerId,
     }));
 
-    // Check if the selected answer is correct
     const currentQuestion = selectedQuiz.questions.find((q) => q.id === questionId);
     const selectedAnswer = currentQuestion.answers.find((a) => a.id === answerId);
     setIsAnswerCorrect(selectedAnswer.isCorrect);
-
-    // Update live score if the answer is correct
-    if (selectedAnswer.isCorrect) {
-      setLiveScore((prevScore) => prevScore + 1);
-    }
   };
 
-  // Navigate to the next question
   const handleNextQuestion = () => {
-    if (currentQuestionIndex < selectedQuiz.questions.length - 1) {
+    if (currentQuestionIndex < selectedQuiz.questions.length - 1 && isAnswerCorrect) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
       setIsAnswerCorrect(false);
     }
   };
 
-  // Navigate to the previous question
   const handlePreviousQuestion = () => {
     if (currentQuestionIndex > 0) {
       setCurrentQuestionIndex(currentQuestionIndex - 1);
@@ -49,15 +39,12 @@ const Quiz = ({ selectedQuiz, handleSubmit, score, setSelectedQuiz }) => {
   return (
     <div className="p-6 bg-gray-50 min-h-screen">
       <h1 className="text-3xl font-bold text-gray-800 mb-4">{selectedQuiz.title}</h1>
-
       <h2 className="text-xl text-gray-700 mb-6">
         Question {currentQuestionIndex + 1} of {selectedQuiz.questions.length}
       </h2>
-
       <div className="mb-4">
         <span className="text-lg font-semibold text-gray-800">Score: {liveScore}</span>
       </div>
-
       <Question
         currentQuestion={currentQuestion}
         selectedAnswers={selectedAnswers}

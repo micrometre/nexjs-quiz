@@ -3,7 +3,8 @@ import { useState, useEffect } from 'react';
 import Layout from '../components/Layout';
 import QuizList from '../components/QuizList';
 import Quiz from '../components/Quiz';
-
+import Hero from '../components/Hero';
+import Product from '@/components/Product';
 export default function Home() {
   const [quizzes, setQuizzes] = useState([]);
   const [selectedQuiz, setSelectedQuiz] = useState(null);
@@ -36,6 +37,7 @@ export default function Home() {
 
   return (
     <Layout>
+      <Hero />
       {!selectedQuiz ? (
         <QuizList quizzes={quizzes} startQuiz={startQuiz} />
       ) : (
